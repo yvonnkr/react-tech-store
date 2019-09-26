@@ -20,7 +20,6 @@ import 'bootstrap/dist/css/bootstrap.min.css';
 function App() {
   return (
     <>
-      {/* navbar,sidebar,cart,footer */}
       <Navbar />
       <Sidebar />
       <SideCart />
