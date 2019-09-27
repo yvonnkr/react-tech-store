@@ -20,7 +20,72 @@ class ProductProvider extends Component {
     filteredProducts: [],
     featuredProducts: [],
     singleProduct: {},
-    loading: true
+    loading: false
+  };
+
+  componentDidMount() {
+    //later will get items from contentful
+    this.setProducts(items);
+  }
+
+  // set products -map from complex conteful structure to simple object/array
+  setProducts = products => {
+    let storeProducts = products.map(item => {
+      const { id } = item.sys;
+      const product = { id, ...item.fields };
+
+      return product;
+    });
+
+    //filtered products
+    let featuredProducts = storeProducts.filter(item => item.featured);
+
+    this.setState({
+      storeProducts,
+      filteredProducts: storeProducts,
+      featuredProducts,
+      cart: this.getStorageCart(),
+      singleProduct: this.getStorageProduct(),
+      loading: false
+    });
+  };
+
+  //get cart from local storage
+  getStorageCart = () => {
+    return [];
+  };
+
+  //get product from local storage
+  getStorageProduct = () => {
+    return {};
+  };
+
+  //get totals
+  getTotals = () => {
+    //
+    //
+  };
+
+  //add totals
+  addTotals = () => {
+    //
+    //
+  };
+
+  //sync storage
+  syncStorage = () => {
+    //
+    //
+  };
+
+  //add to cart
+  addToCart = id => {
+    console.log(`add to cart ${id}`);
+  };
+
+  //set single product
+  setSingleProduct = id => {
+    console.log(`set single product ${id}`);
   };
 
   // handle sidebar
@@ -60,7 +125,9 @@ class ProductProvider extends Component {
           handleSidebar: this.handleSidebar,
           handleCart: this.handleCart,
           closeCart: this.closeCart,
-          openCart: this.openCart
+          openCart: this.openCart,
+          addToCart: this.addToCart,
+          setSingleProduct: this.setSingleProduct
         }}
       >
         {this.props.children}
