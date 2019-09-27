@@ -1,6 +1,8 @@
 import React from 'react';
 import { Link } from 'react-router-dom';
 import Hero from '../components/Hero';
+import Services from '../components/HomePage/Services';
+import Featured from '../components/HomePage/Featured';
 
 const HomePage = () => {
   return (
@@ -10,6 +12,8 @@ const HomePage = () => {
           our products
         </Link>
       </Hero>
+      <Services />
+      <Featured />
     </>
   );
 };
