@@ -7,7 +7,7 @@ import CartColumns from './CartColumns';
 const Cart = () => {
   return (
     <div>
-      <Title title='cart items' />
+      <Title title='cart items' center='true' />
       <CartColumns />
       <CartList />
       <CartTotals />
