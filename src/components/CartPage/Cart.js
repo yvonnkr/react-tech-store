@@ -6,12 +6,21 @@ import CartColumns from './CartColumns';
 
 const Cart = () => {
   return (
-    <div>
-      <Title title='cart items' center='true' />
+    <section className='py-5'>
+      {/* title */}
+      <div className='container'>
+        <Title title='your cart items' center='true' />
+      </div>
+
+      {/* cart columns */}
       <CartColumns />
+
+      {/* cart list */}
       <CartList />
+
+      {/* cart totals */}
       <CartTotals />
-    </div>
+    </section>
   );
 };
 
