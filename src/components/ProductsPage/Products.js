@@ -26,7 +26,6 @@ const Products = () => {
                   </h6>
                 </div>
               </div>
-
               {/* product*/}
               <div className='row py-5'>
                 {filteredProducts.length === 0 ? (
