@@ -31,8 +31,8 @@ const SingleProductPage = props => {
                 <div className='row'>
                   <div className='col-10 mx-auto col-sm-8 col-md-6 my-3'>
                     <img
-                      src={`../${image}`}
-                      // src={image} //when using contentful
+                      //src={`../${image}`} //when using local
+                      src={image} //when using contentful
                       alt='single product'
                       className='img-fluid'
                     />

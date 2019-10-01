@@ -15,8 +15,8 @@ const SideCart = () => {
               {cart.map(item => (
                 <li key={item.id} className='cart-item mb-4'>
                   <img
-                    src={`../${item.image}`}
-                    // src={item.image}
+                    //src={`../${item.image}`}
+                    src={item.image}
                     alt='cart item'
                     width='35'
                   />
