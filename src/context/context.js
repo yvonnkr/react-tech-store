@@ -267,14 +267,22 @@ class ProductProvider extends Component {
     );
   };
 
-  //handle filtering
+  //handle filtering ==========================
   handleChange = e => {
-    console.log(e);
+    const name = e.target.name;
+    const value =
+      e.target.type === 'checked' ? e.target.checked : e.target.value;
+
+    this.setState(
+      {
+        [name]: value
+      },
+      this.sortData
+    );
   };
 
   sortData = () => {
-    //
-    //
+    console.log('sorting data');
   };
 
   //   render ===============================
