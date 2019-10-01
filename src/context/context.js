@@ -1,7 +1,8 @@
 import React, { Component } from 'react';
 import { linkData } from './linkData';
 import { socialData } from './socialData';
-import { items } from './productData';
+// import { items } from './productData';
+import { client } from './contentful';
 
 const ProductContext = React.createContext();
 
@@ -29,10 +30,23 @@ class ProductProvider extends Component {
     shipping: false
   };
 
-  componentDidMount() {
-    //later will get items from contentful
-    this.setProducts(items);
+  //using data from contentful ============================
+  async componentDidMount() {
+    try {
+      const response = await client.getEntries({
+        content_type: 'techStoreProducts'
+      });
+
+      this.setProducts(response.items);
+    } catch (error) {
+      console.log(error);
+    }
   }
+
+  // //using local data ====================================
+  // componentDidMount() {
+  //   this.setProducts(items);
+  // }
 
   // set products -map from complex conteful structure to simple object/array
   setProducts = products => {
@@ -308,6 +322,7 @@ class ProductProvider extends Component {
         if (tempSearch === tempTitle) {
           return item;
         }
+        return {};
       });
     }
 
